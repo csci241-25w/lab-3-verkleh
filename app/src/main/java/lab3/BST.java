@@ -93,13 +93,11 @@ public class BST {
         if (n == null) {
             return -1;
         }
-        if (n.left != null) {
+        if (height(n.left) > height(n.right)) {
             return 1 + height(n.left);
-        }
-        if (n.right != null) {
+        } else {
             return 1 + height(n.right);
         }
-        return 0; // TODO
     }
 
     /** inner class representing a node in the tree. */
