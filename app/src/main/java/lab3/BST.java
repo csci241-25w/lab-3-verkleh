@@ -16,9 +16,9 @@ public class BST {
             return false;
         }
         if (n.left == null && n.right == null) {
-            return false;
+            return true;
         }
-        return true; //TODO
+        return false; //TODO
     }
 
     /** return the number of nodes in the tree */
@@ -46,7 +46,7 @@ public class BST {
         // TODO
         if (n != null) {
             inOrder(n.left);
-            traversal = traversal + ", " + n.value;
+            traversal = traversal + n.value;
             inOrder(n.right);
         }
     }
@@ -59,6 +59,11 @@ public class BST {
     }
     private void preOrder(Node n) {
         // TODO
+        if (n != null) {
+            traversal = traversal + n.value;
+            inOrder(n.left);
+            inOrder(n.right);
+        }
     }
 
     /** appends the values in the tree to String traversal using a post-order traversal */
@@ -68,6 +73,11 @@ public class BST {
     }
     private void postOrder(Node n) {
         //TODO
+        if (n != null) {
+            inOrder(n.left);
+            inOrder(n.right);
+            traversal = traversal + n.value;
+        }
     }
 
     /** return the height of the tree.
