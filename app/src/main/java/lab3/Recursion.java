@@ -26,9 +26,15 @@ public class Recursion {
    *        countE(s[1:] otherwise
    */
   public static int countE(String s)  {
-      return 0; // TODO
+    if (s.equals("")) {
+      return 0; // TODO 
+    }
+    if (s.substring(0, 1).equals("e")) {
+      return 1 + countE(s.substring(1));
+    } else {
+      return countE(s.substring(1));
+    }
   }
-
 
   /** = sum of  digits in the decimal representation of n.
     e.g. sum(0) = 0, sum(3) = 3
