@@ -12,7 +12,7 @@ public class Recursion {
    *   len(s) = 1 + len(s[1..] otherwise */
   public static int len(String s) {
     // TODO: replace true with the correct base case condition
-    if (true) {
+    if (s.equals("")) {
       return 0;
     }
     return 1 + len(s.substring(1));
