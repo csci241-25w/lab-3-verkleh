@@ -61,8 +61,8 @@ public class BST {
         // TODO
         if (n != null) {
             traversal = traversal + n.value;
-            inOrder(n.left);
-            inOrder(n.right);
+            preOrder(n.left);
+            preOrder(n.right);
         }
     }
 
@@ -74,8 +74,8 @@ public class BST {
     private void postOrder(Node n) {
         //TODO
         if (n != null) {
-            inOrder(n.left);
-            inOrder(n.right);
+            postOrder(n.left);
+            postOrder(n.right);
             traversal = traversal + n.value;
         }
     }
