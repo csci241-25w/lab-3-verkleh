@@ -44,6 +44,11 @@ public class BST {
     }
     private void inOrder(Node n) {
         // TODO
+        if (n != null) {
+            inOrder(n.left);
+            traversal = traversal + ", " + n.value;
+            inOrder(n.right);
+        }
     }
 
 
@@ -75,6 +80,15 @@ public class BST {
 
     /* return the height of the tree rooted at n */
     private int height(Node n) {
+        if (n == null) {
+            return -1;
+        }
+        if (n.left != null) {
+            return 1 + height(n.left);
+        }
+        if (n.right != null) {
+            return 1 + height(n.right);
+        }
         return 0; // TODO
     }
 
