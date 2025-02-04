@@ -12,7 +12,13 @@ public class BST {
     /* return true iff Node n is a leaf node. a null node is not considered
      * a leaf. */
     public boolean isLeaf(Node n) {
-        return false; //TODO
+        if (n == null) {
+            return false;
+        }
+        if (n.left == null && n.right == null) {
+            return false;
+        }
+        return true; //TODO
     }
 
     /** return the number of nodes in the tree */
