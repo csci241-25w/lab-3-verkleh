@@ -12,6 +12,12 @@ public class BST {
     /* return true iff Node n is a leaf node. a null node is not considered
      * a leaf. */
     public boolean isLeaf(Node n) {
+        if (n == null) {
+            return false;
+        }
+        if (n.left == null && n.right == null) {
+            return true;
+        }
         return false; //TODO
     }
 
@@ -24,7 +30,10 @@ public class BST {
      * = 0 if n is null
      * = 1 + number of nodes in left + number of nodes in right */
     private int size(Node n) {
-        return 0; // TODO
+        if (n == null) {
+            return 0; // TODO
+        }
+        return 1 + size(n.left) + size(n.right);
     }
 
 
@@ -35,6 +44,11 @@ public class BST {
     }
     private void inOrder(Node n) {
         // TODO
+        if (n != null) {
+            inOrder(n.left);
+            traversal = traversal + n.value;
+            inOrder(n.right);
+        }
     }
 
 
@@ -45,6 +59,11 @@ public class BST {
     }
     private void preOrder(Node n) {
         // TODO
+        if (n != null) {
+            traversal = traversal + n.value;
+            preOrder(n.left);
+            preOrder(n.right);
+        }
     }
 
     /** appends the values in the tree to String traversal using a post-order traversal */
@@ -54,6 +73,11 @@ public class BST {
     }
     private void postOrder(Node n) {
         //TODO
+        if (n != null) {
+            postOrder(n.left);
+            postOrder(n.right);
+            traversal = traversal + n.value;
+        }
     }
 
     /** return the height of the tree.
@@ -66,7 +90,14 @@ public class BST {
 
     /* return the height of the tree rooted at n */
     private int height(Node n) {
-        return 0; // TODO
+        if (n == null) {
+            return -1;
+        }
+        if (height(n.left) > height(n.right)) {
+            return 1 + height(n.left);
+        } else {
+            return 1 + height(n.right);
+        }
     }
 
     /** inner class representing a node in the tree. */
